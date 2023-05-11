@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# 삼성전자_평택 앞 차량 병목 현상을 효율적으로 만들기 위해 shuttle 운행 앱 제작
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 고덕 교통체증 기사
+[https://www.pttimes.com/news/articleView.html?idxno=67533](https://www.pttimes.com/news/articleView.html?idxno=67533)
 
-## Available Scripts
+# 주요 목표
 
-In the project directory, you can run:
+### 1. 각 업체별로 흩어진 셔틀버스를 단일 노선 및 한개 업체에서 관리 
 
-### `npm start`
+현재 삼성전자 협력사 개별로 셔틀버스를 운행 중인데 이를 단일 업체로 합쳐서 하나의 노선으로 효율적인 운행
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 2. 버스의 실시간 위치를 제공하는 웹앱 제작
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 3. 협력사 직원의 동선을 파악하여 효율적인 동선 구성
 
-### `npm test`
+### 4. 각 주체의 이득사항
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+협력사 - 셔틀동선의 단일화로 효율적인 이동 및 금액 감소.
 
-### `npm run build`
+셔틀운행업체 - 직원들의 동선을 파악하여 기사님, 원자재 가격 감소 가능.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+삼성전자 - 협력사 직원의 피로도 감소.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+주변 상인 - 교통체증이 없어지면서 더 많은 수요 창출 가능. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+협력사 직원 - 웹앱을 통해 실시간 셔틀 정보를 통해 효율적인 시간관리 가능.
 
-### `npm run eject`
+나 - 개인의 발전
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+프로토타입 제작중.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+내 차량으로 셔틀 운행 해보고 수익성 검증이 되면 다음 스텝으로 갈 예정.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### vercel
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[https://zero100shuttle.vercel.app/](https://zero100shuttle.vercel.app/)
