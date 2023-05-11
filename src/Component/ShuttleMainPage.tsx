@@ -36,7 +36,11 @@ function SuttleMainPage() {
 
   return (
     <div className="App">
-      <div ref={mapElement} style={{ minHeight: "400px" }} />;
+      <div
+        className="bg-main"
+        ref={mapElement}
+        style={{ minHeight: "400px" }}
+      />
       {carByTime.map(function (a, i) {
         return (
           <div className="list" key={i}>
