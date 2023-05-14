@@ -12,7 +12,7 @@ function SuttleMainPage() {
     const location = new naver.maps.LatLng(37.039587, 127.050191);
     const mapOptions: naver.maps.MapOptions = {
       center: location,
-      zoom: 17,
+      zoom: 15,
       zoomControl: true,
       zoomControlOptions: {
         position: naver.maps.Position.TOP_RIGHT,
@@ -36,10 +36,21 @@ function SuttleMainPage() {
   return (
     <div className="App">
       <div
-        className="bg-main"
-        ref={mapElement}
-        style={{ minHeight: "400px" }}
-      />
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          ref={mapElement}
+          style={{
+            width: "400px",
+            height: "400px",
+          }}
+        />
+      </div>
+
       {carByTime.map(function (a, i) {
         return (
           <div className="list" key={i}>
