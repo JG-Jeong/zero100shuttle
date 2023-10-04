@@ -1,6 +1,6 @@
 import "./../App.css";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 interface QustionsId {
   [key: string]: string;
@@ -16,11 +16,7 @@ function Answers() {
 
   switch (answerPage) {
     case "0":
-      return (
-        <>
-          <Answers0 />
-        </>
-      );
+      return <Answers0 />;
     case "1":
       return <Answers1 />;
     case "2":
@@ -43,14 +39,16 @@ function Answers() {
 }
 
 function Answers0() {
-  return <div>어떤 도움이 필요하신가요!?</div>;
+  return <div>상단에서 도움이 필요한 메뉴를 골라 주세요!</div>;
 }
 
 function Answers1() {
   return (
     <>
       아래 카카오톡 친구추가 후 쿠폰을 발급해주세요!
-      <br />s ---카카오톡 링크---
+      <br />
+      <a href="http://pf.kakao.com/_SvExkxj/chat">---카카오톡 링크---</a>
+      <br />
     </>
   );
 }
@@ -72,8 +70,9 @@ function Answers2() {
   );
 }
 
+//pc 업데이트하고 나서 자료 수정해 주세요. 23.09.13-jg jeong
 function Answers3() {
-  return <>피시방 사양 물어보는 질문임. </>;
+  return <>//pc사양 업데이트 예정// </>;
 }
 
 function Answers4() {
@@ -102,28 +101,69 @@ function Answers5() {
   );
 }
 function Answers6() {
-  return <>매장 연락처</>;
+  return (
+    <>
+      매장 연락처
+      <br />
+      0507-1302-8359
+    </>
+  );
 }
 
 function Answers7() {
   return (
     <>
       <br />
-      연중무휴 24시 정상영업합니다❤
+      연중무휴 24시 정상영업합니다❤️
       <br />
       <br />밤 12시 - 아침 7시까지는 무인운영합니다!
     </>
   );
 }
 function Answers8() {
+  const mapElement = useRef(null);
+
+  useEffect(() => {
+    const { naver } = window;
+    if (!mapElement.current || !naver) return;
+
+    // 지도에 표시할 위치의 위도와 경도 좌표를 파라미터로 넣어줍니다.
+    const location = new naver.maps.LatLng(37.039587, 127.050191);
+    const mapOptions: naver.maps.MapOptions = {
+      center: location,
+      zoom: 15,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: naver.maps.Position.TOP_RIGHT,
+      },
+    };
+    const map = new naver.maps.Map(mapElement.current, mapOptions);
+    new naver.maps.Marker({
+      position: location,
+      map,
+    });
+  }, []);
+
   return (
     <>
       <br />✅ 주소는 평택시 고덕여염9길 26 헤리움 프라자4차 지하1층
       <br />
       <br />✅ 라인에서 걸어서 5분거리!
-      <br />
-      <br />
-      아래 버튼 클릭해서 지도로 확인해보세요👇
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          ref={mapElement}
+          style={{
+            width: "400px",
+            height: "400px",
+          }}
+        />
+      </div>
     </>
   );
 }

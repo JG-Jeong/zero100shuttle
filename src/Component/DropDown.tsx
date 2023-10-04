@@ -18,23 +18,25 @@ function MainQuestionsDropdown() {
     <div>
       <Dropdown>
         <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-          🙋 어떤 도움이 필요하신가요??
+          {mainQuestion[questionsId].title}
         </Dropdown.Toggle>
 
         <Dropdown.Menu variant="grey">
           {mainQuestion.map((a, index) => {
             return (
-              <Dropdown.Item
-                id="dropdown-button-dark-example1"
-                onClick={async () => {
-                  setQuestionsId(index);
-                  handleItemClick(index);
-                }}
-                key={index}
-                active
-              >
-                {mainQuestion[index].title}
-              </Dropdown.Item>
+              <>
+                <Dropdown.Item
+                  id="dropdown-button-dark-example1"
+                  onClick={async () => {
+                    setQuestionsId(index);
+                    handleItemClick(index);
+                  }}
+                  key={index}
+                  active
+                >
+                  {mainQuestion[index].title}
+                </Dropdown.Item>
+              </>
             );
           })}
           <Dropdown.Divider />

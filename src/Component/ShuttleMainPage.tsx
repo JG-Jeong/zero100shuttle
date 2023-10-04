@@ -30,8 +30,15 @@ function SuttleMainPage() {
     "2시 차량",
     "3시 차량",
   ]);
-  let [peopleRideCar, setPeopleRideCar] = useState(0);
-  let [number, setNumber] = useState(0);
+  let [peopleRideCar, setPeopleRideCar] = useState([0, 0, 0]);
+
+  const handleButtonClick = (index: number) => {
+    setPeopleRideCar((prevPeopleRideCar: number[]) => {
+      const updatedPeopleRideCar = [...prevPeopleRideCar];
+      updatedPeopleRideCar[index] += 1;
+      return updatedPeopleRideCar;
+    });
+  };
 
   return (
     <div className="App">
@@ -52,47 +59,26 @@ function SuttleMainPage() {
       </div>
 
       {carByTime.map(function (a, i) {
+        console.log(peopleRideCar[i]);
         return (
           <div className="list" key={i}>
-            <h4
-              onClick={() => {
-                setNumber((number = i));
-              }}
-            >
-              {carByTime[i]}
-            </h4>
-            {peopleRideCar}
+            <h4>{carByTime[i]}</h4>
+            {peopleRideCar[i]}
             <br />
             <button
               className="spanBoundary"
               onClick={(e) => {
-                e.stopPropagation();
-                setPeopleRideCar(peopleRideCar + 1);
+                // e.stopPropagation();
+                handleButtonClick(i);
               }}
             >
               🚗 차량 탑승 신청 🚗
             </button>
             <br />
+            <br />
           </div>
         );
       })}
-    </div>
-  );
-}
-
-function Modal(props: any) {
-  return (
-    <div className="modal">
-      <h4>{props.carByTime[props.number]}</h4>
-      <p>날짜</p>
-      <p>상세내용</p>
-      <button
-        onClick={() => {
-          props.setCarByTime(props.carByTime[0]);
-        }}
-      >
-        글수정
-      </button>
     </div>
   );
 }

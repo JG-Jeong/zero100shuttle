@@ -1,6 +1,14 @@
 import "../App.css";
+import { useEffect, useState } from "react";
 
 function HomeMainPage() {
+  //현재 접속 시간을 알려주는 코드
+  const [connectTime, setConnectTime] = useState(new Date());
+
+  useEffect(() => {
+    setConnectTime(new Date());
+  }, []);
+
   return (
     <div>
       '제로백 PC방 고덕삼성점'을 방문해 주셔서 감사합니다.
@@ -13,7 +21,7 @@ function HomeMainPage() {
       <br />
       -------------------------------
       <br />
-      접속 일시: 2023년 04월 03일 18:46
+      <p>접속 시간 - {connectTime.toLocaleString()}</p>
     </div>
   );
 }
